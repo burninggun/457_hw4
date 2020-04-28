@@ -1,20 +1,33 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-buttons slot="end">
+			<ion-icon [routerLink]="['/newquote']" color="primary" size="large" name="add-outline"></ion-icon>
+		  </ion-buttons>		
+		  <ion-title class="ion-text-center">
+			A4 William Cheng
+		</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+	<div>
+		<ion-list  *ngFor="let quote of loadedQuotes" >
+			<ion-item-sliding>
+				<ion-item [routerLink]="['/home/quotedetail', quote.id]" >
+					<ion-label class="ion-text-wrap" >
+						<h2>{{quote.id}} {{quote.person}}</h2>
+						<p>{{quote.text}}</p>
+					</ion-label>
+				</ion-item>
+				<ion-item-options side="end">
+					<ion-item-option (click)="deleteQuote(quote)" color="danger">
+						<ion-icon size="large" name="trash"></ion-icon>
+					</ion-item-option>
+					<ion-item-option [routerLink]="['/home/editquote', quote.id]" >
+						<ion-icon size="large" name="pencil-outline">asd</ion-icon>
+					</ion-item-option>
+				</ion-item-options>
+			</ion-item-sliding>
+		</ion-list>
+	</div>
 </ion-content>

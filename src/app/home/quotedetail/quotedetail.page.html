@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-icon [routerLink]="['/home']" routerDirection="back" color="primary" size="large" name="close-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Quote Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="ion-text-center">
+    <ion-card-title>
+      <h3>{{quote.person}}</h3>
+    </ion-card-title>
+    <ion-card-content>
+      <p>{{quote.text}}</p>
+    </ion-card-content>
+
+    <ion-button [routerLink]="['/home/editquote', quote.id]" >Edit</ion-button>
+  </ion-card>
+
+</ion-content>

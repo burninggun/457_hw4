@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'newquote',
+    loadChildren: () => import('./newquote/newquote.module').then( m => m.NewquotePageModule)
+  },
 ];
 
 @NgModule({

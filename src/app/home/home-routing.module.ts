@@ -6,6 +6,14 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },
+  {
+    path: 'quotedetail/:id',
+    loadChildren: () => import('./quotedetail/quotedetail.module').then( m => m.QuotedetailPageModule)
+  },
+  {
+    path: 'editquote/:id',
+    loadChildren: () => import('./editquote/editquote.module').then( m => m.EditquotePageModule)
   }
 ];
 
